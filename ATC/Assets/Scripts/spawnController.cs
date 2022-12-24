@@ -6,30 +6,33 @@ public class spawnController : MonoBehaviour
 {
     public CircleCollider2D backgroundCollider;
     public GameObject airPlanePrefab;
-    public float spawnDelay = 5.0f;
+    public float spawnDelay = 1.0f;
     public int levelNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(levelSpawner());
+        StartCoroutine(levelSpawner(levelNumber));
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public IEnumerator levelSpawner(int levNum)
     {
-        for(int i = 0; i < levNum + 2; i++)
+        for(int i = 0; i < (levNum + 2) * 2; i++)
         {
             Vector2 spawnPoint = new Vector2();
             spawnPoint = Random.insideUnitCircle.normalized * backgroundCollider.radius * 2.80f;
-            float angle = Mathf.Atan2(spawnPoint.y, spawnPoint.x) * Mathf.Rad2Deg + 90;
-            angle += Random.Range(-60.0f, 60.0f); //Adds variety to angle so they aren't all heading towards the center
-            Instantiate(airPlanePrefab, spawnPoint, Quaternion.Euler(0, 0, angle));
+            float angle = Mathf.Atan2(spawnPoint.y, spawnPoint.x) * Mathf.Rad2Deg;
+            if(angle < 0)
+            {
+                angle += 360;
+            }
+            Instantiate(airPlanePrefab, spawnPoint, Quaternion.Euler(0, 0, angle + 90));
             yield return new WaitForSeconds(spawnDelay);
         }
     }
@@ -39,7 +42,7 @@ public class spawnController : MonoBehaviour
         while(true)
         {
             Vector2 spawnPoint = new Vector2();
-            spawnPoint = Random.insideUnitCircle.normalized * backgroundCollider.radius * 2.80f;
+            spawnPoint = Random.insideUnitCircle.normalized * backgroundCollider.radius * 3.0f;
             float angle = Mathf.Atan2(spawnPoint.y, spawnPoint.x) * Mathf.Rad2Deg + 90;
             angle += Random.Range(-60.0f, 60.0f); //Adds variety to angle so they aren't all heading towards the center
             Instantiate(airPlanePrefab, spawnPoint, Quaternion.Euler(0, 0, angle));

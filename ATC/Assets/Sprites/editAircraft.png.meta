@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d2311145b960a04f9a413938477774c
+guid: bdc024068fa4e22449486b0169932820
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,127 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExplosionSprite_0
+      name: editAircraft_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 2
+        y: 2
+        width: 27
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dec0f85024a47984a93bee080437151c
-      internalID: 2096026769
+      spriteID: 9c677e99f21050f4cab181e130f0033b
+      internalID: 577779557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionSprite_1
+      name: editAircraft_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 34
+        y: 2
+        width: 27
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa5d081eae71c0945a76416049aebe95
-      internalID: -1281372227
+      spriteID: a5361beb7255a814f8442b9ec0eac719
+      internalID: 389432618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionSprite_2
+      name: editAircraft_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 67
+        y: 2
+        width: 27
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae5d5003ba369e443959b370f914f5be
-      internalID: -863400719
+      spriteID: 3be61e711966a8c4b90662402c9969e2
+      internalID: 1038495123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionSprite_3
+      name: editAircraft_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 98
+        y: 2
+        width: 27
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a73d50bf1ce76f46acc922ac37371bb
-      internalID: -1521639325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExplosionSprite_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04c66a385deb8164d9dcdca8e4e7959e
-      internalID: -951164846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExplosionSprite_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ebf3117e7881ad4b91e23c73ee29406
-      internalID: 1659820359
+      spriteID: 415427a13c6726f4eb04123bd3ce4499
+      internalID: -1810821284
       vertices: []
       indices: 
       edges: []
@@ -253,12 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExplosionSprite_0: 2096026769
-      ExplosionSprite_3: -1521639325
-      ExplosionSprite_5: 1659820359
-      ExplosionSprite_1: -1281372227
-      ExplosionSprite_4: -951164846
-      ExplosionSprite_2: -863400719
+      editAircraft_0: 577779557
+      editAircraft_3: -1810821284
+      editAircraft_2: 1038495123
+      editAircraft_1: 389432618
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
