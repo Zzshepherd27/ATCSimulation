@@ -8,9 +8,9 @@ public class AirplaneMovement : MonoBehaviour
     private bool active = false;
     private Rigidbody2D rb;
     private SpriteRenderer spr;
+    private Animation anim;
     
     public Animator animator;
-    public Animation anim;
     public CircleCollider2D targetCollider;
     public float planeSpeed = 2.0f;
 
@@ -18,7 +18,6 @@ public class AirplaneMovement : MonoBehaviour
     void Start()
     {
         spr = gameObject.GetComponent<SpriteRenderer>();
-        anim = gameObject.GetComponent<Animation>();
         Vector2 target = new Vector2();
         target = Random.insideUnitCircle.normalized * targetCollider.radius * 2.0f;
         rb = this.GetComponent<Rigidbody2D>();
@@ -53,7 +52,8 @@ public class AirplaneMovement : MonoBehaviour
         }
         if(col.gameObject.tag == "Radar")
         {
-            
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length);
+            animator.Play("Plane_Idle", -1, 0f);
         }
     }
 

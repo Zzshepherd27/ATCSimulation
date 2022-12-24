@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - Planes
+  - Radar
   layers:
   - Default
   - TransparentFX
