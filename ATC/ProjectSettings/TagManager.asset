@@ -7,6 +7,9 @@ TagManager:
   - Background
   - Planes
   - Radar
+  - Spawn
+  - Clock
+  - ActiveSpr
   layers:
   - Default
   - TransparentFX

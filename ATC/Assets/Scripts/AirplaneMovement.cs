@@ -8,8 +8,8 @@ public class AirplaneMovement : MonoBehaviour
     private bool active = false;
     private Rigidbody2D rb;
     private SpriteRenderer spr;
-    private Animation anim;
     
+    public GameObject activePrefab;
     public Animator animator;
     public CircleCollider2D targetCollider;
     public float planeSpeed = 2.0f;
@@ -48,11 +48,10 @@ public class AirplaneMovement : MonoBehaviour
     {
         if(col.gameObject.tag == "Background" && col.usedByEffector)
         {
-            Destroy(this.gameObject);
+            destroyPlane();
         }
         if(col.gameObject.tag == "Radar")
         {
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length);
             animator.Play("Plane_Idle", -1, 0f);
         }
     }
@@ -60,5 +59,22 @@ public class AirplaneMovement : MonoBehaviour
     public void destroyPlane()
     {
         Destroy(this.gameObject);
+    }
+
+    void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.8)
+        {
+            GameObject prefab = Instantiate(activePrefab, this.transform);
+            StartCoroutine(instanceDelete(prefab, 2.0f));
+        }
+    }
+
+    public IEnumerator instanceDelete(GameObject fab, float delay)
+    {
+        active = true;
+        yield return new WaitForSeconds(delay);
+        active = false;
+        Destroy(fab);
     }
 }
