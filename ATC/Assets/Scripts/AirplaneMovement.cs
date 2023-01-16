@@ -5,10 +5,10 @@ using UnityEngine;
 public class AirplaneMovement : MonoBehaviour
 {
 
-    private bool active = false;
-    private Rigidbody2D rb;
     private SpriteRenderer spr;
     
+    public Rigidbody2D rb;
+    public bool active = false;
     public GameObject activePrefab;
     public Animator animator;
     public CircleCollider2D targetCollider;
@@ -61,18 +61,15 @@ public class AirplaneMovement : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnMouseOver()
+    void OnMouseDown()
     {
-        if(Input.GetMouseButtonDown(0) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.8)
-        {
-            GameObject prefab = Instantiate(activePrefab, this.transform);
-            StartCoroutine(instanceDelete(prefab, 2.0f));
-        }
+        GameObject prefab = Instantiate(activePrefab, this.transform);
+        StartCoroutine(instanceDelete(prefab, 2.0f));
+        active = true;
     }
 
     public IEnumerator instanceDelete(GameObject fab, float delay)
     {
-        active = true;
         yield return new WaitForSeconds(delay);
         active = false;
         Destroy(fab);
