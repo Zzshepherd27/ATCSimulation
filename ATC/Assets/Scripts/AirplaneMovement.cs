@@ -6,9 +6,11 @@ public class AirplaneMovement : MonoBehaviour
 {
 
     private SpriteRenderer spr;
-    
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private bool invincible = true;
+
     public bool active = false;
+    public float IFrames = 3.0f;
     public GameObject activePrefab;
     public Animator animator;
     public CircleCollider2D targetCollider;
@@ -27,6 +29,7 @@ public class AirplaneMovement : MonoBehaviour
         target.y = target.y - transform.position.y;
         float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        StartCoroutine(IFramesFunc(IFrames));
     }
 
     // Update is called once per frame
@@ -37,7 +40,7 @@ public class AirplaneMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Planes")
+        if(col.gameObject.tag == "Planes" && !invincible && !col.gameObject.GetComponent<AirplaneMovement>().getInvincible())
         {
             rb.velocity = new Vector2(0,0);
             animator.SetBool("dead", true);
@@ -73,5 +76,21 @@ public class AirplaneMovement : MonoBehaviour
         yield return new WaitForSeconds(delay);
         active = false;
         Destroy(fab);
+    }
+
+    public IEnumerator IFramesFunc(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        invincible = false;
+    }
+
+    public Rigidbody2D getRigidBody()
+    {
+        return rb;
+    }
+
+    public bool getInvincible()
+    {
+        return invincible;
     }
 }
