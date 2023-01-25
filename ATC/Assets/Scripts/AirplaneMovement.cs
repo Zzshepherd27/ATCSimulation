@@ -5,7 +5,6 @@ using UnityEngine;
 public class AirplaneMovement : MonoBehaviour
 {
 
-    private SpriteRenderer spr;
     private Rigidbody2D rb;
     private bool invincible = true;
 
@@ -19,11 +18,14 @@ public class AirplaneMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spr = gameObject.GetComponent<SpriteRenderer>();
         Vector2 target = new Vector2();
         target = Random.insideUnitCircle.normalized * targetCollider.radius * 2.0f;
         rb = this.GetComponent<Rigidbody2D>();
         Vector2 velocity = new Vector2(-(transform.position.x - target.x), -(transform.position.y - target.y)).normalized;
+        if(name == "AirPlanePrefab")
+        {
+            velocity = new Vector2(0,0);
+        }
         rb.velocity = velocity;
         target.x = target.x - transform.position.x;
         target.y = target.y - transform.position.y;
@@ -80,8 +82,12 @@ public class AirplaneMovement : MonoBehaviour
 
     public IEnumerator IFramesFunc(float delay)
     {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Animator>().enabled = false;
         yield return new WaitForSeconds(delay);
         invincible = false;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Animator>().enabled = true;
     }
 
     public Rigidbody2D getRigidBody()

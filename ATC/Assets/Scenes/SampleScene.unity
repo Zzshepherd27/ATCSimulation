@@ -1035,6 +1035,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5193161174861253490, guid: 2f33ad7c1828f2a4c834c1d6815f97b2, type: 3}
+      propertyPath: IFrames
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193161174861253490, guid: 2f33ad7c1828f2a4c834c1d6815f97b2, type: 3}
       propertyPath: activePrefab
       value: 
       objectReference: {fileID: 2135315850}
